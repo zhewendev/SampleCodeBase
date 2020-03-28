@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startService(intentService);
                 break;
             case R.id.start_fore_service:
-                Intent start=new Intent (this,MyService.class);
+                Intent start=new Intent (this,ForeService.class);
                 if(Build.VERSION.SDK_INT>=26){
                     startForegroundService (start);
                 }else{
