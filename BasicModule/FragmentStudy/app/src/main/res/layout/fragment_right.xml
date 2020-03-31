@@ -5,9 +5,38 @@
     android:background="@android:color/background_light">
 
     <TextView
+        android:id="@+id/tv_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:text="Right Fragment"/>
+    <Button
+        android:id="@+id/btn_handler_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_center"
+        android:layout_centerHorizontal="true"
+        android:text="Handler发送消息"/>
+    <Button
+        android:id="@+id/btn_broadcast_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_handler_connect"
+        android:layout_centerHorizontal="true"
+        android:text="Broadcast发送消息"/>
+    <Button
+        android:id="@+id/btn_event_bus_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_broadcast_connect"
+        android:layout_centerHorizontal="true"
+        android:text="event bus发送消息"/>
+    <Button
+        android:id="@+id/btn_interface_callback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_event_bus_connect"
+        android:layout_centerHorizontal="true"
+        android:text="接口回调通信"/>
 
 </RelativeLayout>
