@@ -1,6 +1,7 @@
 package com.baiheng.broadcaststudy;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -27,8 +28,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private NetworkChangeReceiver mNetworkChangeReceiver;
     private AnotherBroadcastReceiver mAnotherBroadcastReceiver;
     private LocalReceiver mLocalReceiver;
+    private LocalBroadcastManager mLocalBroadcastManager;
     private Button mSendBroadcast;
     private Button mSendOrderBroadcast;
+    private Button mSendLocalBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mSendBroadcast = (Button) findViewById(R.id.btn_start_broadcast);
         mSendOrderBroadcast = (Button) findViewById(R.id.btn_start_order_broadcast);
+        mSendLocalBroadcast = (Button) findViewById(R.id.btn_start_local_broadcast);
         mSendBroadcast.setOnClickListener(this);
         mSendOrderBroadcast.setOnClickListener(this);
+        mSendLocalBroadcast.setOnClickListener(this);
+        mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
         registerBroadcast();
 
     }
@@ -53,6 +59,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAnotherIntentFilter.setPriority(20);
         mAnotherBroadcastReceiver = new AnotherBroadcastReceiver();
         registerReceiver(mAnotherBroadcastReceiver,mAnotherIntentFilter);
+
+        mLocalIntentFilter = new IntentFilter();
+        mLocalIntentFilter.addAction("com.baiheng.broadcaststudy.MY_BROADCAST");
+        mLocalReceiver = new LocalReceiver();
+        mLocalBroadcastManager.registerReceiver(mLocalReceiver,mLocalIntentFilter);
     }
 
     @Override
@@ -68,6 +79,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent1 = new Intent("com.baiheng.broadcaststudy.MY_BROADCAST");
                 sendOrderedBroadcast(intent1,null);
                 break;
+            case R.id.btn_start_local_broadcast:
+                Intent intent2 = new Intent("com.baiheng.broadcaststudy.MY_BROADCAST");
+                mLocalBroadcastManager.sendBroadcast(intent2);
+                break;
+            default:
+                break;
         }
     }
 
@@ -76,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         unregisterReceiver(mNetworkChangeReceiver);
         unregisterReceiver(mAnotherBroadcastReceiver);
+        mLocalBroadcastManager.unregisterReceiver(mLocalReceiver);
         Log.d(TAG,"onDestroy");
     }
 
