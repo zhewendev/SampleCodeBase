@@ -1,8 +1,8 @@
 package com.baiheng.fragmentstudy;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,14 +18,13 @@ public class LeftFragment extends Fragment {
     private static final String TAG = LeftFragment.class.getSimpleName();
     private static String ARG_PARAM = "param_key";
     private String mParam;
-    private Activity mActivity;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        mActivity = (Activity) context;
-        assert getArguments() != null;
-        mParam = getArguments().getString(ARG_PARAM);
+        if (mParam != null) {
+            mParam = getArguments().getString(ARG_PARAM);
+        }
     }
 
     @Nullable
@@ -34,7 +33,9 @@ public class LeftFragment extends Fragment {
         Log.d(TAG,"onCreateView");
         View root = inflater.inflate(R.layout.fragment_left,container,false);
         TextView textView = (TextView) root.findViewById(R.id.tv_left_fragment);
-        textView.setText(mParam);
+        if (!TextUtils.isEmpty(mParam)) {
+            textView.setText(mParam);
+        }
         return root;
     }
 

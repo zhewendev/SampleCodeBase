@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements RightFragment.Act
 
     public MyHandler mMyHandler = new MyHandler(this);
     private FragmentManager mFragmentManager;
-    private FragmentTransaction mFragmentTransaction;
+    private LeftFragment mLeftFragment;
 
     public static class MyHandler extends Handler {
         private WeakReference<MainActivity> mActivity;
@@ -58,7 +60,14 @@ public class MainActivity extends AppCompatActivity implements RightFragment.Act
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         EventBus.getDefault().register(this);   //注册EventBus
-        dynamicLoadFragment(new RightFragment());
+        mFragmentManager = getSupportFragmentManager();
+        mLeftFragment = new LeftFragment();
+        dynamicLoadFragment(mLeftFragment,R.id.first_fragment_contain);
+        RightFragment rightFragment = new RightFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("key","setArguments");
+        rightFragment.setArguments(bundle);
+        dynamicLoadFragment(rightFragment,R.id.fragment_contain);
         registerBroadcastReceiver();
     }
 
@@ -66,18 +75,18 @@ public class MainActivity extends AppCompatActivity implements RightFragment.Act
      * 动态加载Fragment
      * @param fragment
      */
-    private void dynamicLoadFragment(Fragment fragment) {
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.add(R.id.fragment_contain,fragment);
-        mFragmentTransaction.addToBackStack(null);
-        mFragmentTransaction.commit();
+    private void dynamicLoadFragment(Fragment fragment,int resId) {
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.add(resId,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     @Override
     public void listener(String message) {
         Toast.makeText(this,"interface callback" + message,Toast.LENGTH_LONG).show();
     }
+
 
     /**
      * 接收消息

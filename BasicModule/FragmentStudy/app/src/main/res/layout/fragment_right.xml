@@ -38,5 +38,26 @@
         android:layout_below="@id/btn_event_bus_connect"
         android:layout_centerHorizontal="true"
         android:text="接口回调通信"/>
+    <Button
+        android:id="@+id/btn_get_arguments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_event_bus_connect"
+        android:layout_centerHorizontal="true"
+        android:text="获取setArgument()的传值"/>
+    <Button
+        android:id="@+id/btn_send_third_fragment_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_get_arguments"
+        android:layout_centerHorizontal="true"
+        android:text="传递给ThirdFragment页面的值"/>
+    <Button
+        android:id="@+id/btn_connect_with_other_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_send_third_fragment_value"
+        android:layout_centerHorizontal="true"
+        android:text="获取其他Fragment实例，进行通信"/>
 
 </RelativeLayout>
