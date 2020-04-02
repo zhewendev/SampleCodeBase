@@ -1,0 +1,10 @@
+<resources>
+    <string-array name="myarray">
+        <item>燕草碧如丝</item>
+        <item>秦桑低绿枝</item>
+        <item>当君怀归日</item>
+        <item>是妾断肠时</item>
+        <item>春风不相识</item>
+        <item>何事入罗帏</item>
+    </string-array>
+</resources>
