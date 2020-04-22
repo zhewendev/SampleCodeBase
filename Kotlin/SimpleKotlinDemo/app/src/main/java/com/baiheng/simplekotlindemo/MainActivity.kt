@@ -15,6 +15,29 @@ class MainActivity : AppCompatActivity() {
             "nihao"
         }
         Toast.makeText(this,name,Toast.LENGTH_LONG).show()
+//        val str : String = "Hello world!"
+//        println("strLength = ${str.length}")
+//        println("strIndices = ${str.indices}")
+//        println("strLastIndex = ${str.lastIndex}")
+//        println("strFirst = ${str.first()}")
+//        println("strFind = ${str.find { it == 'W' }}")
+//        println("strLast = ${str.last()}")
+//        println("strIndexOfFirst = ${str.indexOfFirst { it == 'H'}}")
+//        println("strIndexOf = ${str.indexOf("Hello",0)}")
+        val str = "Kotlin is a very good programming language"
+//        println("subStr = ${str.substring(10)}")  // 当只有开始下标时，结束下标为length - 1
+//        println(str.substring(0,15))
+//        println(str.substring(IntRange(0,15)))
+//        println("subSeq = ${str.subSequence(IntRange(0,15))}")
+        println(str.replace('a','A'))
+
+
+
+
+
+
+
+
 
     }
 }
