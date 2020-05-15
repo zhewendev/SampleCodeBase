@@ -21,7 +21,9 @@ ext {
             retrofit                    :"com.squareup.retrofit2:retrofit:2.8.1",
             converter_gson              :"com.squareup.retrofit2:converter-gson:2.8.1",
             //运行时权限申请开源库
-            easypermissions             :"pub.devrel:easypermissions:3.0.0"
+            easypermissions             :"pub.devrel:easypermissions:3.0.0",
+            //logger
+            logger                       :"com.orhanobut:logger:2.2.0"
 
 
     ]
