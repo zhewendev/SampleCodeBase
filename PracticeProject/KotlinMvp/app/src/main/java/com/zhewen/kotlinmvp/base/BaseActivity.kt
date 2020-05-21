@@ -78,7 +78,6 @@ abstract class BaseActivity : AppCompatActivity(),EasyPermissions.PermissionCall
 
     override fun onDestroy() {
         super.onDestroy()
-        MyApplication.getRefWatcher(this)?.watch(this)
     }
 
     /**

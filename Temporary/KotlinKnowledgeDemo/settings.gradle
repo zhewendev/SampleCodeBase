@@ -1,0 +1,3 @@
+rootProject.name='KotlinKonwledgeDemo'
+include ':app'
+include ':mylibrary'

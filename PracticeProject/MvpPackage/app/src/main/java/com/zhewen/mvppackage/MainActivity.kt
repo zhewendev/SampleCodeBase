@@ -1,4 +1,4 @@
-package com.zhewen.kotlinmvp
+package com.zhewen.mvppackage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

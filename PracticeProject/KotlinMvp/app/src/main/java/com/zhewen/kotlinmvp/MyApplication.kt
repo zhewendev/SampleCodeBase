@@ -8,7 +8,6 @@ import android.util.Log
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
-import com.squareup.leakcanary.RefWatcher
 import kotlin.properties.Delegates
 
 /**
@@ -17,17 +16,11 @@ import kotlin.properties.Delegates
  * desc: Initializing Environment Configuration
  */
 class MyApplication : Application() {
-    private var refWatcher: RefWatcher? = null  //todo
 
     companion object {
         private val TAG = MyApplication::class.java.simpleName
-        var context: Context by Delegates.notNull() //todo
+        var context: Context by Delegates.notNull()
             private set
-
-        fun getRefWatcher(context: Context): RefWatcher? {
-            val myApplication = context.applicationContext as MyApplication
-            return myApplication.refWatcher
-        }
     }
 
     override fun onCreate() {

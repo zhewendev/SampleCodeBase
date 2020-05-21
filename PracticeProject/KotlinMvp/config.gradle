@@ -23,8 +23,9 @@ ext {
             //运行时权限申请开源库
             easypermissions             :"pub.devrel:easypermissions:3.0.0",
             //logger
-            logger                       :"com.orhanobut:logger:2.2.0"
-
+            logger                       :"com.orhanobut:logger:2.2.0",
+            //bottom navigator
+            FlycoTabLayout              :"com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar"
 
     ]
 
@@ -34,10 +35,10 @@ ext {
     ]
 
     debugImplementation = [
-            leakcanary                  :"com.squareup.leakcanary:leakcanary-android:1.6.3"
+            leakcanary                  :"com.squareup.leakcanary:leakcanary-android:2.3"
     ]
 
     releaseImplementation = [
-            leakcanary                  :"com.squareup.leakcanary:leakcanary-android-no-op:1.5.4"
+//            leakcanary                  :"com.squareup.leakcanary:leakcanary-android-no-op:1.5.4"
     ]
 }
