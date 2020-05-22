@@ -249,12 +249,9 @@ class MultipleStatusView @JvmOverloads constructor(
     }
 
     private fun clear(vararg views: View) {
-        if (null == views) {
-            return
-        }
         try {
             for (view in views) {
-                view.let { removeView(it) }
+                removeView(view)
             }
         } catch (e: Exception) {
             e.printStackTrace()
