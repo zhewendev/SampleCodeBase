@@ -2,10 +2,13 @@ package com.baiheng.simplekotlindemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TabHost
+import android.widget.TextView
 import android.widget.Toast
-
 class MainActivity : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,7 +17,11 @@ class MainActivity : AppCompatActivity() {
         val name : String by lazy {
             "nihao"
         }
-        Toast.makeText(this,name,Toast.LENGTH_LONG).show()
+        println(Test("小明",15).height)
+        println(Test.Factory.height)
+        topLevelFunction()
+        val list: List<out Test> = listOf(SecondTest(),ThirdTest())
+//        Toast.makeText(this,name,Toast.LENGTH_LONG).show()
 //        val str : String = "Hello world!"
 //        println("strLength = ${str.length}")
 //        println("strIndices = ${str.indices}")

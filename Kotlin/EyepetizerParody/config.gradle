@@ -1,0 +1,28 @@
+ext {
+
+    // android原生相关
+    versions = [
+            compileSdkVersion : 30,
+            buildToolsVersion : '30.0.1',
+            minSdkVersion     : 26,
+            targetSdkVersion  : 30
+    ]
+
+    //androidX支持库配置
+    androidx = [
+            LIFE_CYCLE :    'androidx.test.espresso:espresso-core:3.2.0'
+    ]
+
+    //第三方支持库
+    external = [
+            AROUTER_API : 'com.alibaba:arouter-api:1.5.0',
+            AROUTER_COMPILER :  'com.alibaba:arouter-compiler:1.2.2',
+            GLIDE       : 'com.github.bumptech.glide:glide:4.11.0',
+            GLIDE_TRANSFORMATIONS : 'jp.wasabeef:glide-transformations:4.1.0',
+            GLIDE_COMPILER  :   'com.github.bumptech.glide:compiler:4.11.0',
+            LOGGER  :   'com.orhanobut:logger:2.2.0',
+            PERMISSIONS :   'pub.devrel:easypermissions:3.0.0'
+    ]
+
+
+}
