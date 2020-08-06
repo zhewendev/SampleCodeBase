@@ -17,10 +17,9 @@ class MainActivity : AppCompatActivity() {
         val name : String by lazy {
             "nihao"
         }
-        println(Test("小明",15).height)
         println(Test.Factory.height)
         topLevelFunction()
-        val list: List<out Test> = listOf(SecondTest(),ThirdTest())
+        val list: List<Test> = listOf(SecondTest(),ThirdTest())
 //        Toast.makeText(this,name,Toast.LENGTH_LONG).show()
 //        val str : String = "Hello world!"
 //        println("strLength = ${str.length}")
