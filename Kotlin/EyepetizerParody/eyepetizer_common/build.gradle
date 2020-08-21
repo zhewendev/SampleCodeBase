@@ -38,5 +38,6 @@ dependencies {
     api androidx.LIFE_CYCLE_EXTENSIONS
     api external.IMMERSIONBAR
     api external.IMMERSIONBAR_KTX
+    api external.FRAGMENTATIONX
 
 }

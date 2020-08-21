@@ -1,11 +1,19 @@
 package com.baiheng.simplekotlindemo
 
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.TabHost
 import android.widget.TextView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlin.reflect.KProperty
+
 class MainActivity : AppCompatActivity() {
 
 
@@ -17,9 +25,11 @@ class MainActivity : AppCompatActivity() {
         val name : String by lazy {
             "nihao"
         }
-        println(Test.Factory.height)
         topLevelFunction()
-        val list: List<Test> = listOf(SecondTest(),ThirdTest())
+        Singleton.sayHi()
+        Log.d("MainActivity", "this Activity${this.tv_main.text}")
+        Log.d("MainActivity","mTestView${mTestView.tv_main.text}")
+//        val list: List<Test> = listOf(SecondTest(),ThirdTest())
 //        Toast.makeText(this,name,Toast.LENGTH_LONG).show()
 //        val str : String = "Hello world!"
 //        println("strLength = ${str.length}")
@@ -35,15 +45,26 @@ class MainActivity : AppCompatActivity() {
 //        println(str.substring(0,15))
 //        println(str.substring(IntRange(0,15)))
 //        println("subSeq = ${str.subSequence(IntRange(0,15))}")
-        println(str.replace('a','A'))
 
+        Log.d("MainActivity","name = " + Test<String>().name)
+        Log.d("MainActivity","userName = " + Test<String>().userName)
+        val test = Test<String>()
+        test.userName = "hshishi"
+        Log.d("MainActivity",test.userName)
+        Log.d("MainActivity",test.name)
+        Log.d("MainActivity","sex = " + Test<String>().sex)
+        ST().handleSuperClass()
 
-
-
-
-
-
+        val(jname,age,height) = TT("xiaoming",22)
+        Log.d("MainActivity","jname = $jname")
+        Log.d("MainActivity,","age =$age")
+        Log.d("MainActivity,","height =$height")
 
 
     }
+
+    fun test(onClickListener: View.OnClickListener = View.OnClickListener {  }) {
+
+    }
 }
+

@@ -1,13 +1,12 @@
 package com.zhewen.eyepetizer.common.base
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.orhanobut.logger.Logger
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
-
-abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCallbacks {
+abstract class BaseActivity : BaseSupportActivity(), EasyPermissions.PermissionCallbacks {
 
     companion object {
         const val TAG: String = "BaseActivity"
@@ -15,25 +14,34 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutId())
-        getExtra()
         initView()
     }
-
-    /**
-     * 获取布局视图
-     */
-    abstract fun layoutId() : Int
-
-    /**
-     * 获取外部数据
-     */
-    protected fun getExtra() {}
 
     /**
      * 初始化视图
      */
     abstract fun initView()
+
+    fun showLoading() {
+        mMultipleStateView.showLoading()
+    }
+
+    fun showEmpty(onClickListener: View.OnClickListener) {
+        mMultipleStateView.showEmpty(onClickListener)
+    }
+
+    fun showNoNetwork(onClickListener: View.OnClickListener) {
+        mMultipleStateView.showNoNetwork(onClickListener)
+    }
+
+    fun showError(onClickListener: View.OnClickListener) {
+        mMultipleStateView.showError(onClickListener)
+    }
+
+    fun showContent() {
+        mMultipleStateView.showContent()
+    }
+
 
     /**
      * 权限结果回调，接收权限请求结果

@@ -10,21 +10,22 @@ ext {
 
     //androidX支持库配置
     androidx = [
-            LIFE_CYCLE :    'androidx.test.espresso:espresso-core:3.2.0',
+            LIFE_CYCLE :            'androidx.test.espresso:espresso-core:3.2.0',
             LIFE_CYCLE_EXTENSIONS : 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     ]
 
     //第三方支持库
     external = [
-            AROUTER_API : 'com.alibaba:arouter-api:1.5.0',
-            AROUTER_COMPILER :  'com.alibaba:arouter-compiler:1.2.2',
-            GLIDE       : 'com.github.bumptech.glide:glide:4.11.0',
-            GLIDE_TRANSFORMATIONS : 'jp.wasabeef:glide-transformations:4.1.0',
-            GLIDE_COMPILER  :   'com.github.bumptech.glide:compiler:4.11.0',
-            LOGGER  :   'com.orhanobut:logger:2.2.0',
-            PERMISSIONS :   'pub.devrel:easypermissions:3.0.0',
-            IMMERSIONBAR:   'com.gyf.immersionbar:immersionbar:3.0.0',
-            IMMERSIONBAR_KTX:   'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
+            AROUTER_API :               'com.alibaba:arouter-api:1.5.0',
+            AROUTER_COMPILER :          'com.alibaba:arouter-compiler:1.2.2',
+            GLIDE       :               'com.github.bumptech.glide:glide:4.11.0',
+            GLIDE_TRANSFORMATIONS :     'jp.wasabeef:glide-transformations:4.1.0',
+            GLIDE_COMPILER  :           'com.github.bumptech.glide:compiler:4.11.0',
+            LOGGER  :                   'com.orhanobut:logger:2.2.0',
+            PERMISSIONS :               'pub.devrel:easypermissions:3.0.0',
+            IMMERSIONBAR:               'com.gyf.immersionbar:immersionbar:3.0.0',
+            IMMERSIONBAR_KTX:           'com.gyf.immersionbar:immersionbar-ktx:3.0.0',
+            FRAGMENTATIONX:             'me.yokeyword:fragmentationx:1.0.2'
     ]
 
 
