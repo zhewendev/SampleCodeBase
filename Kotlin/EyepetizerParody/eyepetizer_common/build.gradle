@@ -39,5 +39,6 @@ dependencies {
     api external.IMMERSIONBAR
     api external.IMMERSIONBAR_KTX
     api external.FRAGMENTATIONX
+    api external.ULTRA_VIEW_PAGER
 
 }

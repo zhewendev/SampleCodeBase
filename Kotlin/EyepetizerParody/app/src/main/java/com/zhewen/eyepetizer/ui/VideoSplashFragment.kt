@@ -15,5 +15,6 @@ class VideoSplashFragment: BaseSupportFragment() {
 
     override fun initView(savedInstanceState: Bundle?) {
         TODO("Not yet implemented")
+        lifecycle.addObserver()
     }
 }

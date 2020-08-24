@@ -42,6 +42,7 @@
     <dimen name="dp_39">39dp</dimen>
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_46">46dp</dimen>
+    <dimen name="dp_220">220dp</dimen>
     <dimen name="dp_280">280dp</dimen>
 
 </resources>
