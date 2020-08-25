@@ -5,4 +5,11 @@
         <attr name="noNetWorkView" format="reference"/>
         <attr name="errorView" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomTextView">
+        <enum name="FZLanTing_normal" value="0"/>
+        <enum name="FZLanTing_bold" value="1"/>
+        <enum name="Future" value="2"/>
+        <enum name="Lobster" value="3"/>
+    </declare-styleable>
 </resources>
