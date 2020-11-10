@@ -54,7 +54,7 @@ fun foo2() {
 }
 
 /**
- * crossinline注解
+ * crossinline 注解
  */
 inline fun inlineFunction(crossinline myFun: () -> Unit, nxtFun: () -> Unit) {
     myFun()
