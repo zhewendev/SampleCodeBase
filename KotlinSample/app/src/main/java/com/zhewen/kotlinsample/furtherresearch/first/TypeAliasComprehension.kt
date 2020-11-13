@@ -1,4 +1,4 @@
-package com.zhewen.kotlinsample.furtherresearchfirst.choosefucorprop
+package com.zhewen.kotlinsample.furtherresearch.first
 
 import android.text.TextUtils as Utils
 

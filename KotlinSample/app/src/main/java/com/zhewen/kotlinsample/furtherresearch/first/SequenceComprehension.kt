@@ -1,4 +1,4 @@
-package com.zhewen.kotlinsample.furtherresearchfirst.choosefucorprop
+package com.zhewen.kotlinsample.furtherresearch.first
 
 /**
  * sequence 解析

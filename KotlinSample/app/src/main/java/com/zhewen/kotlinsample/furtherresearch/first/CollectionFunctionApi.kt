@@ -1,4 +1,4 @@
-package com.zhewen.kotlinsample.furtherresearchfirst.choosefucorprop
+package com.zhewen.kotlinsample.furtherresearch.first
 
 /**
  * 函数式API调用部分示例，具体参看文档或源码与官方文档

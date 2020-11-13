@@ -1,4 +1,4 @@
-package com.zhewen.kotlinsample.furtherresearchfirst.choosefucorprop
+package com.zhewen.kotlinsample.furtherresearch.first
 
 /**
  * Kotlin中选择定义函数属性的时机选择演示
