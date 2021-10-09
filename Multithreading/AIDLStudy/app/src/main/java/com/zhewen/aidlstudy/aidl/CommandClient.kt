@@ -64,7 +64,6 @@ class CommandClient private constructor() {
         val intent = Intent()
         intent.action = "com.zhewen.aidlserverstudy.aidl.commandservice"
         intent.`package` = "com.zhewen.aidlserverstudy"
-//        intent.component = ComponentName("com.zhewen.aidlserverstudy", "com.zhewen.aidlserverstudy.aidl.CommandService")
         return mContext?.get()?.bindService(intent,mServiceConnection, BIND_AUTO_CREATE) ?: false
     }
 

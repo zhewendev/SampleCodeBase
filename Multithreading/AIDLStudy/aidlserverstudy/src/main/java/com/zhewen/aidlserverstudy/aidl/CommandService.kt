@@ -18,11 +18,11 @@ class CommandService: Service() {
     override fun onBind(p0: Intent?): IBinder? {
         //权限验证
         Log.d(TAG,"onBind")
-//        val check = checkCallingOrSelfPermission("com.zhewen.aidlService.permission.ACCESS_SERVICE")
-//        if (check == PackageManager.PERMISSION_DENIED) {
-//            Log.d(TAG,"onBind,null")
-//            return null
-//        }
+        val check = checkCallingOrSelfPermission("com.zhewen.aidlService.permission.ACCESS_SERVICE")
+        if (check == PackageManager.PERMISSION_DENIED) {
+            Log.d(TAG,"onBind,null")
+            return null
+        }
         return mRemoteBinder
     }
 
