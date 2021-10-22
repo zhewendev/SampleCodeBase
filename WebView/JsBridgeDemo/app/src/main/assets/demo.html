@@ -48,7 +48,7 @@
 
             //send message to native
             var data = {id: 1, content: "这是一个图片 <img src=\"a.png\"/> test\r\nhahaha"};
-            window.WebViewJavascriptBridge.send(
+            window.WebViewJsBridge.send(
                 data
                 , function(responseData) {
                     document.getElementById("show").innerHTML = "response Data from java, data = " + responseData
