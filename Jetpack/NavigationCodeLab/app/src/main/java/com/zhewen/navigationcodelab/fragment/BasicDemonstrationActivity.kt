@@ -19,7 +19,7 @@ class BasicDemonstrationActivity:AppCompatActivity() {
                 val bundle = bundleOf("origin" to "from activity switch button")
                 setReorderingAllowed(true)
                 addToBackStack(BasicSecondFragment.TAG)
-                add<BasicSecondFragment>(R.id.fragment_container_view,BasicSecondFragment.TAG,bundle)
+                replace<BasicSecondFragment>(R.id.fragment_container_view,BasicSecondFragment.TAG,bundle)
             }
         }
 

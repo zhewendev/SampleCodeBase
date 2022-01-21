@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".fragment.BasicDemonstrationActivity"
             android:exported="false"/>
+        <activity android:name=".fragment.BasicSecondDemonstrationActivity"
+            android:exported="false"/>
         <activity android:name=".navigation.NavigationDemonstrationActivity"
             android:exported="false"/>
     </application>

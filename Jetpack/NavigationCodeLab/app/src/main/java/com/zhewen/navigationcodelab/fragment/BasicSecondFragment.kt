@@ -1,5 +1,7 @@
 package com.zhewen.navigationcodelab.fragment
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -8,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import androidx.lifecycle.Lifecycle
 import com.zhewen.navigationcodelab.FragmentBackHandler
 import com.zhewen.navigationcodelab.R
 import com.zhewen.navigationcodelab.handleBackPress
@@ -21,17 +24,21 @@ class BasicSecondFragment: Fragment(R.layout.fragment_basic_second),FragmentBack
         const val TAG = "BasicSecondFragment"
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val activity = context as Activity
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        external = requireArguments().getString("origin")
-
+        external = arguments?.getString("origin")?:""
+        childFragmentManager.fragmentFactory = BasicFiveFragmentFactory()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tv1 = view.findViewById(R.id.show_external_message)
-        btn = view.findViewById(R.id.switch_button);
+        btn = view.findViewById(R.id.switch_button)
         initView()
     }
 
@@ -40,11 +47,25 @@ class BasicSecondFragment: Fragment(R.layout.fragment_basic_second),FragmentBack
         tv1.setOnClickListener {
             tv1.text = "setOnClickListener"
         }
+        var flag = true
         btn.setOnClickListener{
-            childFragmentManager.commit {
-                setReorderingAllowed(true)
-                addToBackStack(BasicFourFragment.TAG)
-                replace<BasicFourFragment>(R.id.fragment_container_view)
+            if (flag) {
+                flag = false
+                childFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    addToBackStack(BasicFourFragment.TAG)
+                    replace<BasicFourFragment>(R.id.fragment_container_view)
+                }
+            } else {
+                flag = true
+                childFragmentManager.commit {
+                    setReorderingAllowed(true)
+                    addToBackStack(BasicFiveFragment.TAG)
+                    replace<BasicFiveFragment>(R.id.fragment_container_view)
+//                    val basicFiveFragment = BasicFiveFragment("error")
+//                    replace(R.id.fragment_container_view,basicFiveFragment)
+//                    setMaxLifecycle(basicFiveFragment,Lifecycle.State.CREATED)
+                }
             }
         }
     }

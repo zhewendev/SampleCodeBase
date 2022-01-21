@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import com.zhewen.navigationcodelab.fragment.BasicDemonstrationActivity
+import com.zhewen.navigationcodelab.fragment.BasicSecondDemonstrationActivity
 import com.zhewen.navigationcodelab.navigation.NavigationDemonstrationActivity
 
 class MainActivity : AppCompatActivity(){
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity(){
 
     private lateinit var mFirstBtn: Button
     private lateinit var mSecondBtn: Button
+    private lateinit var mThreeBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +27,14 @@ class MainActivity : AppCompatActivity(){
     private fun initView() {
         mFirstBtn = findViewById(R.id.jump_button_one)
         mSecondBtn = findViewById(R.id.jump_button_two)
+        mThreeBtn = findViewById(R.id.jump_button_three)
         mFirstBtn.setOnClickListener {
             startActivity<BasicDemonstrationActivity>(this@MainActivity) {}
         }
         mSecondBtn.setOnClickListener {
+            startActivity<BasicSecondDemonstrationActivity>(this@MainActivity){}
+        }
+        mThreeBtn.setOnClickListener {
             startActivity<NavigationDemonstrationActivity>(this@MainActivity){}
         }
     }

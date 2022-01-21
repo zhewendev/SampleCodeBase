@@ -17,15 +17,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-
     <Button
         android:id="@+id/jump_button_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="跳转到Navigation演示主页"
+        android:text="跳转到多Fragment平级演示主页"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@id/jump_button_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/jump_button_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="跳转到Navigation演示主页"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/jump_button_two"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
