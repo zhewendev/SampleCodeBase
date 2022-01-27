@@ -5,7 +5,6 @@ package com.zhewen.jsbridge;
  * Author: bigwang
  * Description:
  */
-// TODO: 2021/10/21  
 class JSResponse {
 
     public String responseId;

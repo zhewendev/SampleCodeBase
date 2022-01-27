@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.Lifecycle
+import androidx.transition.TransitionInflater
 import com.zhewen.navigationcodelab.FragmentBackHandler
 import com.zhewen.navigationcodelab.R
 import com.zhewen.navigationcodelab.handleBackPress
@@ -31,8 +33,11 @@ class BasicSecondFragment: Fragment(R.layout.fragment_basic_second),FragmentBack
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val inflater = TransitionInflater.from(requireContext())
+        enterTransition = inflater.inflateTransition(R.transition.slide_right)
         external = arguments?.getString("origin")?:""
         childFragmentManager.fragmentFactory = BasicFiveFragmentFactory()
+        parentFragmentManager.setFragmentResult("requestDemoKey", bundleOf("bundleKey" to "from basic second Fragment"))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -58,6 +63,8 @@ class BasicSecondFragment: Fragment(R.layout.fragment_basic_second),FragmentBack
                 }
             } else {
                 flag = true
+                val result = "result"
+                childFragmentManager.setFragmentResult("requestKey", bundleOf("bundleKey" to result))
                 childFragmentManager.commit {
                     setReorderingAllowed(true)
                     addToBackStack(BasicFiveFragment.TAG)

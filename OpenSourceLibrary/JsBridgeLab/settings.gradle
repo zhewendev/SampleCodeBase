@@ -1,0 +1,3 @@
+rootProject.name = "JsBridgeLab"
+include ':app'
+include ':jsbridge'

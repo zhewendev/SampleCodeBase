@@ -11,6 +11,7 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.zhewen.jsbridge.BridgeHandler;
@@ -20,10 +21,9 @@ import com.zhewen.jsbridge.CallBackFunction;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = "MainActivity";
-
-    BridgeWebView webView;
-
-    Button button;
+    private BridgeWebView webView;
+    private Button button;
+    private TextView textView;
 
     int RESULT_CODE = 0;
 
@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        webView = (BridgeWebView) findViewById(R.id.webView);
-
-        button = (Button) findViewById(R.id.button);
-
+        webView = findViewById(R.id.webView);
+        button = findViewById(R.id.button);
+        textView = findViewById(R.id.message);
         button.setOnClickListener(this);
+        initWebView();
+    }
 
-
+    private void initWebView() {
         webView.setWebChromeClient(new WebChromeClient() {
 
             @SuppressWarnings("unused")
@@ -104,8 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         webView.callJs("hello");
-
     }
+
 
     public void pickFile() {
         Intent chooserIntent = new Intent(Intent.ACTION_GET_CONTENT);

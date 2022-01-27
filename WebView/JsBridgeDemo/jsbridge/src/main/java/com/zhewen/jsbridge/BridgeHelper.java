@@ -1,6 +1,5 @@
 package com.zhewen.jsbridge;
 
-import android.os.Build;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
