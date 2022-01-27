@@ -1,3 +1,0 @@
-rootProject.name = "JsBridgeDemo"
-include ':app'
-include ':jsbridge'
