@@ -6,6 +6,7 @@ package com.zhewen.kotlinsample.higherorder.collectionbasedemo
 fun main(){
     val arr = arrayOf(1,2,3,4)
     var list1 = listOf(1,23,"kotlin",true)
+    list1.slice()
     var list2 = listOf<String>("hello","kotlin")
     var list3 = arr.toList()
     var list4 = listOf(arr)

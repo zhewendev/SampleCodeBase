@@ -1,5 +1,5 @@
 package com.zhewen.aidlserverstudy;
 
 interface IClientCallback{
-    void doClientCallback();
+    void doClientCallback(String value);
 }

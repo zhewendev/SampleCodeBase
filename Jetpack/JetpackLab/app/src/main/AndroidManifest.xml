@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".hilt.HiltFirstActivity"
             android:exported="false"/>
+        <activity android:name=".workmanager.WorkManagerHomeActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

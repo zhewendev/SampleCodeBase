@@ -17,13 +17,13 @@ class CommandServer private constructor(){
     private val mClientCallbackList = RemoteCallbackList<IClientCallback>()
 
     //todo
-    fun registerClientCallback(client: IClientCallback, pkgName:String?) {
-        mClientCallbackList.register(client)
-    }
-
-    fun unRegisterClientCallback(client: IClientCallback,pkgName: String?) {
-        mClientCallbackList.unregister(client);
-    }
+//    fun registerClientCallback(client: IClientCallback, pkgName:String?) {
+//        mClientCallbackList.register(client)
+//    }
+//
+//    fun unRegisterClientCallback(client: IClientCallback,pkgName: String?) {
+//        mClientCallbackList.unregister(client);
+//    }
 
     fun add(value1:Int,value2:Int):Int {
         return value1 + value2
