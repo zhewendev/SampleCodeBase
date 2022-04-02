@@ -10,4 +10,5 @@ interface ICommandServer {
     void addUserIn(in User user);
     void addUserOut(out User user);
     void addUserInOut(inout User user);
+    oneway void addByOneWay(int value1,int value2);
 }

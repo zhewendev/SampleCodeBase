@@ -11,10 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackLab">
         <activity android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -22,6 +22,8 @@
             android:exported="false"/>
         <activity android:name=".workmanager.WorkManagerHomeActivity"
             android:exported="false"/>
+        <activity android:name="com.github.moduth.blockcanary.ui.DisplayActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

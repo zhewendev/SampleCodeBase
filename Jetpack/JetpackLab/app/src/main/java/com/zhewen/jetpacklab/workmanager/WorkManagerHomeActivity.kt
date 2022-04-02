@@ -28,7 +28,7 @@ class WorkManagerHomeActivity:AppCompatActivity(R.layout.activity_workmanager_ho
             .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
             .build()
         WorkManager.getInstance(this).enqueue(workRequest)
-        WorkManager.getInstance(this.applicationContext).beginUniqueWork()
+//        WorkManager.getInstance(this.applicationContext).beginUniqueWork()
 //        val workRequest = OneTimeWorkRequest.from(TestWorker::class.java)
 //        val workRequest = PeriodicWorkRequestBuilder<TestWorker>(1,TimeUnit.HOURS,15,TimeUnit.MINUTES).build()
     }

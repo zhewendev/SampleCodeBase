@@ -7,8 +7,10 @@ import android.content.Intent
 import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.os.IBinder
+import android.os.Looper
 import android.os.RemoteException
 import android.util.Log
+import android.widget.Toast
 import com.zhewen.aidlserverstudy.IClientCallback
 import com.zhewen.aidlserverstudy.ICommandServer
 import com.zhewen.aidlserverstudy.User
@@ -39,7 +41,7 @@ class CommandClient private constructor() {
                 //设置死亡代理
                 IBinder?.linkToDeath(mDeathRecipient,0)
                 mRemoteService = ICommandServer.Stub.asInterface(IBinder)
-//                mRemoteService?.registerClientCallback(mClientCallback,"");
+                mRemoteService?.registerClientCallback(mClientCallback);
             } catch (e : RemoteException) {
                 e.printStackTrace()
             }
@@ -47,6 +49,7 @@ class CommandClient private constructor() {
 
         override fun onServiceDisconnected(componentName: ComponentName?) {
             Log.d(TAG,"onServiceDisconnected")
+            mRemoteService?.unregisterClientCallback(mClientCallback)
             mRemoteService = null
         }
     }
@@ -74,12 +77,12 @@ class CommandClient private constructor() {
         Log.d(TAG,"Client 调用 addUserInOut 之前 User.name = ${user.name}")
         mRemoteService?.addUserInOut(user)
 //        Log.d(TAG,"Client 调用 addUserInOut 之后 User.name = ${user.name}")
-        Log.d(TAG,"Client 调用 addUserInOut 之后 $user")
+        Log.d(TAG,"Client 调用 addUserInOut 之后 ${user.name}")
     }
 
     private val mClientCallback: IClientCallback.Stub = object : IClientCallback.Stub() {
         override fun doClientCallback(value: String?) {
-            TODO("Not yet implemented")
+            Log.d(TAG,"doClientCallback,value = $value")
         }
     }
 

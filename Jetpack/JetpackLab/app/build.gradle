@@ -59,6 +59,8 @@ dependencies {
     implementation 'com.google.dagger:hilt-android:2.41'
     kapt 'com.google.dagger:hilt-compiler:2.41'
     implementation "androidx.work:work-runtime-ktx:2.7.1"
+    debugImplementation 'com.github.markzhai:blockcanary-android:1.5.0'
+    releaseImplementation 'com.github.markzhai:blockcanary-no-op:1.5.0' //空包，为了release打包时不编译进去
 
 
     testImplementation 'junit:junit:4.+'

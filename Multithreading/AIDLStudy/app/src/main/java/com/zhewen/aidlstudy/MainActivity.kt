@@ -16,10 +16,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         CommandClient.sInstance.init(this)
-        findViewById<TextView>(R.id.bind_service).setOnClickListener(this)
-        findViewById<TextView>(R.id.add_view).setOnClickListener(this)
-        findViewById<TextView>(R.id.add_user_view).setOnClickListener(this)
-        findViewById<TextView>(R.id.open_other_app).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_first).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_second).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_third).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_four).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_five).setOnClickListener(this)
+        findViewById<TextView>(R.id.tv_six).setOnClickListener(this)
         CommandClient.sInstance.connectService()
         bindService()
     }
@@ -48,24 +50,34 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when(p0?.id) {
-            R.id.bind_service -> {
+            R.id.tv_first -> {
                 val result = CommandClient.sInstance.connectService()
-                findViewById<TextView>(R.id.bind_service).text = "服务绑定操作$result"
+                findViewById<TextView>(R.id.tv_first).text = "服务绑定操作结果为:$result"
             }
-            R.id.add_view -> {
-//               val result =  CommandClient.sInstance.add(10,19)
-//                findViewById<TextView>(R.id.add_view_result_show).text = "结果——>$result"
+            R.id.tv_second -> {
+               val result =  CommandClient.sInstance.add(10,19)
+                findViewById<TextView>(R.id.tv_second).text = "服务端add方法结果——>$result"
+            }
+            R.id.tv_third -> {
                 CommandClient.sInstance.addUserIn()
             }
-            R.id.add_user_view -> {
+            R.id.tv_four -> {
                 CommandClient.sInstance.addUserOut()
             }
-            R.id.open_other_app -> {
+            R.id.tv_five -> {
                 CommandClient.sInstance.addUserInOut()
+            }
+            R.id.tv_six -> {
+
             }
             else -> {
 
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unbindService(connection)
     }
 }

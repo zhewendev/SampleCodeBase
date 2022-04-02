@@ -11,11 +11,22 @@ import android.util.Log
 import com.zhewen.aidlserverstudy.IClientCallback
 import com.zhewen.aidlserverstudy.ICommandServer
 import com.zhewen.aidlserverstudy.User
+import java.util.*
 
 /**
  * 实现AIDL中定义的接口方法
  */
 class CommandService: Service() {
+
+    //死循环 每隔5秒添加一次person,通知观察者
+    private val serviceWorker = Runnable {
+        while (!Thread.currentThread().isInterrupted) {
+            Thread.sleep(10000)
+            val user = User(Random().nextInt(100),"server")
+            Log.d(TAG, "服务端 onDataChange() 生产的 user = $user}")
+            CommandServer.sInstance.onDataChange(user)
+        }
+    }
 
     override fun onBind(p0: Intent?): IBinder? {
 //        权限验证
@@ -33,6 +44,10 @@ class CommandService: Service() {
     }
 
     private val mRemoteBinder:ICommandServer.Stub = object: ICommandServer.Stub() {
+
+        override fun addByOneWay(value1: Int, value2: Int) {
+
+        }
 
         override fun add(value1: Int, value2: Int): Int {
             return CommandServer.sInstance.add(value1,value2)
@@ -55,6 +70,7 @@ class CommandService: Service() {
         override fun addUserInOut(user: User?) {
             Log.d(TAG,"addUserInOut,userName = ${user?.name}")
             user?.name = "addUserInOut revise"
+            user?.age = 100
         }
 
         override fun onTransact(code: Int, data: Parcel, reply: Parcel?, flags: Int): Boolean {
@@ -64,13 +80,19 @@ class CommandService: Service() {
         }
 
         override fun registerClientCallback(client: IClientCallback?) {
-            TODO("Not yet implemented")
+            client?.let {
+                CommandServer.sInstance.registerClientCallback(it)
+                Thread(serviceWorker).start()
+            }
         }
 
         override fun unregisterClientCallback(client: IClientCallback?) {
-            TODO("Not yet implemented")
+            client?.let {
+                CommandServer.sInstance.unRegisterClientCallback(it)
+            }
         }
     }
+
 
     private fun getCallingClientPkgName(callingUid:Int) : String {
         var packageName = ""
@@ -79,6 +101,11 @@ class CommandService: Service() {
             packageName = packages[0]
         }
         return packageName
+    }
+
+    override fun onDestroy() {
+        CommandServer.sInstance.clean()
+        super.onDestroy()
     }
 
     companion object {
