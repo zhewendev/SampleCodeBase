@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -39,5 +40,12 @@ class MainActivity : AppCompatActivity() {
                 startActivity<WorkManagerHomeActivity>(this@MainActivity){}
             }
         }
+        val time = System.currentTimeMillis()
+        mBinding.btnSecond.postDelayed({Log.d("MainActivity","result time is: ${(System.currentTimeMillis() - time) / 1000}")},5000)
+//        Thread {
+//            Thread.sleep(5000)
+//            Log.d("MainActivity","result time is: ${System.currentTimeMillis() - time}")
+//            println("MainActivity,${System.currentTimeMillis() - time}")
+//        }
     }
 }

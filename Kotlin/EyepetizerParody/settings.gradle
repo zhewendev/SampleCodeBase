@@ -1,8 +1,0 @@
-include ':eyepetizer_message'
-include ':eyepetizer_resources'
-include ':eyepetizer_user_center'
-include ':eyepetizer_home'
-include ':eyepetizer_community'
-include ':eyepetizer_common'
-include ':app'
-rootProject.name = "Eyepetizer"

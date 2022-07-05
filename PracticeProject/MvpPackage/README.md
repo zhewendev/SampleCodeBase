@@ -1,1 +1,0 @@
-MVP + Retrofit + Rxjava3 + Glide + Dagger2
